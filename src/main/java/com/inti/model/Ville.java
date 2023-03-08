@@ -27,6 +27,11 @@ public class Ville {
 		this.id = id;
 		this.nom = nom;
 	}
+	
+	public Ville(String nom) {
+		super();
+		this.nom = nom;
+	}
 	public int getId() {
 		return id;
 	}

@@ -19,8 +19,8 @@ public class Vol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private LocalDate dateDepart;
-	private int heureDepart;
-	private int heureArrivee;
+	private String heureDepart;
+	private String heureArrivee;
 	private LocalDate dateArrivee;
 	@ManyToOne
 	@JoinColumn(name = "idAeroportDepart")
@@ -48,7 +48,7 @@ public class Vol {
 		super();
 	}
 
-	public Vol(LocalDate dateDepart, int heureDepart, int heureArrivee, LocalDate dateArrivee) {
+	public Vol(LocalDate dateDepart, String heureDepart, String heureArrivee, LocalDate dateArrivee) {
 		super();
 		this.dateDepart = dateDepart;
 		this.heureDepart = heureDepart;
@@ -72,19 +72,19 @@ public class Vol {
 		this.dateDepart = dateDepart;
 	}
 
-	public int getHeureDepart() {
+	public String getHeureDepart() {
 		return heureDepart;
 	}
 
-	public void setHeureDepart(int heureDepart) {
+	public void setHeureDepart(String heureDepart) {
 		this.heureDepart = heureDepart;
 	}
 
-	public int getHeureArrivee() {
+	public String getHeureArrivee() {
 		return heureArrivee;
 	}
 
-	public void setHeureArrivee(int heureArrivee) {
+	public void setHeureArrivee(String heureArrivee) {
 		this.heureArrivee = heureArrivee;
 	}
 

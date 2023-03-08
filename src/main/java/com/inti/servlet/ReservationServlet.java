@@ -9,10 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.hibernate.Session;
 
+import com.inti.model.CompagnieAerienne;
 import com.inti.model.Passager;
 import com.inti.model.Reservation;
+import com.inti.model.Vol;
 import com.inti.util.HibernateUtil;
 
 @WebServlet("/Reservation")
@@ -29,7 +32,7 @@ public class ReservationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ReservationVol.jsp").forward(request, response);
-
+		
 	}
 
 	
@@ -37,20 +40,23 @@ public class ReservationServlet extends HttpServlet {
 		
 		try {
 			s.beginTransaction();
-			Passager p1=new Passager();
+			Passager p1=s.get(Passager.class,Integer.parseInt(request.getParameter("idP")));
 			Reservation r1=new Reservation(LocalDate.parse(request.getParameter("date")), Integer.parseInt(request.getParameter("numero")));
+			Vol vol1=s.get(Vol.class, Integer.parseInt(request.getParameter("idVol")));
+			r1.setVol(vol1);
+			r1.setPassager(p1);
 			
 			if (request.getParameter("options-outlined").equals("confirmer")) {
-//				r1.setPassager(Passager.class ,request.getParameter("idP"));
-				//nouveau commentaire
-				//j'arrive pas à inserer l'idP dans la reservation
+				
+				
 				s.save(r1);
 			}else {
 				s.delete(r1);
 			}
-			
+			s.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
+			s.getTransaction().rollback();
 		}
 		doGet(request, response);
 	}

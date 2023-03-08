@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+
 @Entity
 @Table
 public class Client {
@@ -88,6 +90,6 @@ public class Client {
 		return "Client [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", telephone="
 				+ telephone + ", email=" + email + "]";
 	}
-	
+
 	
 }

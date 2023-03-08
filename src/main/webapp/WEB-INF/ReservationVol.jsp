@@ -1,3 +1,8 @@
+
+<%@page import="org.hibernate.Session"%>
+<%@page import="com.inti.util.HibernateUtil"%>
+<%@page import="com.inti.model.Vol"%>
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,6 +23,28 @@
   <input type="text" class="form-control" id="formGroupExampleInput" name="idP" >
 </div>
 
+
+<h3>Choisissez votre vol</h3>
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label"> id Vol </label>
+  <input type="text" class="form-control" id="formGroupExampleInput" name="idVol" >
+</div>
+<!-- <select class="form-select" aria-label="Default select example"> -->
+<!-- <option selected>--Vol--</option> -->
+<%-- <%Session s=HibernateUtil.getSessionFactory().openSession(); --%>
+<%-- doGet(Vol.class, s.get(Vol.class, )); %> --%>
+<%-- <option value="n"><c:out value="${param.nom(n) }"><br/></c:out></option> --%>
+<!-- div dropdown menu -->
+<!-- </select> -->
+<!-- <select class="form-select" aria-label="Default select example"> -->
+<!--   <option selected>--Vol--</option> -->
+<%-- <c:import url="com.inti.model.CompagnieAerienne"> --%>
+<%--   <c:forEach var="n" begin="1" end="" step="1"> --%>
+<%-- 		<option value="n"><c:out value="${param.nom(n) }"><br/></c:out></option>	 --%>
+<%-- 	</c:forEach> --%>
+ 
+<%--   </c:import> --%>
+<!-- </select> -->
 <h3>informations sur la reservation</h3>
 <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label"> Date </label>
