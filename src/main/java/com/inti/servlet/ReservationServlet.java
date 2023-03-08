@@ -42,7 +42,7 @@ public class ReservationServlet extends HttpServlet {
 			
 			if (request.getParameter("options-outlined").equals("confirmer")) {
 //				r1.setPassager(Passager.class ,request.getParameter("idP"));
-				
+				//nouveau commentaire
 				//j'arrive pas à inserer l'idP dans la reservation
 				s.save(r1);
 			}else {
